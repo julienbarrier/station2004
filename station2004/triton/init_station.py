@@ -3,7 +3,7 @@ code to initialise the station
 """
 
 import qcodes as qc
-from mesoscopy.instrument.intrument_tools import create_instrument, \
+from mesoscopy.instrument.instrument_tools import create_instrument, \
     add_to_station
 
 
@@ -13,8 +13,8 @@ def init_instruments():
     from qc.instrument_drivers.tektronix.Keithley_2600_channels import \
         Keithley_2600
 
-    keithley = create_instrument(Keithley_2600, "Keithley2614B",
-                                 address="192.168.0.13",
+    keithley = create_instrument(Keithley_2600, "keithley",
+                                 address="TCPIP::192.168.0.13::inst0::INSTR",
                                  force_new_instance=True)
     add_to_station(keithley,station)
 

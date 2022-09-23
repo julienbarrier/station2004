@@ -1,0 +1,29 @@
+KelvCirculate.VI
+The Circulate sequence starts mixture circulation
+by gradually opening V6.
+
+If the sequence is being used to prepare a TLM 
+system for probe loading, then V6 is 
+closed again and V3 opened. Otherwise, the Roots 
+pump and still power are turned on to start 
+circulation. 
+The sequence of steps is:
+ 1 Warning prompt and allow exit
+ 2 Close V3. If V9 is open then close it and open V14
+ 3 Open V6 to initial setting
+ 4 Gradually adjust V6, provided G2 is stable,
+   in order to maintain G2 at the target value. 
+   If pressure exceeds the over-ride limit then 
+   set V6 back to initial value.
+   Stop adjusting V6 when it has reached its maximum 
+   setting and G2 is below the target.
+ 5 Close V14
+ 6 Wait for V6 is stop moving and G2 to go below
+   the Circulate.Adjust2.Limit
+ 7 If the VI is to prepare for TLM then
+     a Close V6
+     b Open V3
+   else
+     a Set Still heater to Circulate value
+     b If a roots pump is present then turn it on
+ 8 End

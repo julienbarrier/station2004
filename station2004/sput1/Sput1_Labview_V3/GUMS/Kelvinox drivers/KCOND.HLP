@@ -1,0 +1,40 @@
+KelvCondense.VI
+Condensation is performed by gradually cracking 
+open valve V12A while maintaining the pressure at G1. 
+Because of the highly non-linear nature of the valve, 
+quite large deviations from the set point will occur, 
+and are not a cause for concern. 
+Adjustment continues until the valve has exceeded 
+the displayed maximum setting and the displayed 
+gauge is below the target pressure. 
+
+A refinement to this process is used in the case of 
+systems with two interchangeable mixing chambers. If 
+the smaller of the two is being used, it is necessary 
+to reduce the amount of mixture used in circulation. 
+During condensation, the pressure at G2 is 
+continuously monitored. When it drops below the 
+shutoff value defined in the Setup, valve V9 is 
+closed in order to isolate the dump vessel from the 
+circulation system.
+
+The sequence of steps is:
+ 1 If a Variox is used request that it is set to 0K
+ 2 Turn all heaters off.
+ 3 Record 1K N/V setting.
+ 4 Close all solenoid and cracking valves
+ 5 Re-open 1K N/V to previously recorded setting.
+ 6 Open V4A
+ 7 Open V1, V13A and V9.
+   This opens the dump to the fridge.
+ 8 If not a single line open V3
+ 9 Gradually adjust V12A, provided G1 is stable,
+   in order to maintain G1 at the target value. 
+   If pressure exceeds the over-ride limit then 
+   set V12A back to initial value.
+   If a 2 M/C system and the mixture is to be limited 
+   then close V9 when G2 < setup limit.
+   Stop adjusting V12A when it has reached its maximum 
+   setting and G1 is below the target.
+10 End
+   Providing 

@@ -1,0 +1,56 @@
+KelvMonitorPot.VI
+This VI monitors the 1K pot and adjusts the 1K
+Pot needle valve to keep the 1K pot temperature
+below a certain value.
+It operates almost independently of any other 
+processes but can be enabled, disabled or stopped 
+by other VIs. 
+
+The VI periodically checks the 1K pot temperature 
+and compares it with the T(Adjust) value (taken 
+from the 1K Pot setup and displayed on the Monitor). 
+In the case of TLM systems, this adjustment threshold
+is increased by the Top Load Inc. parameter during the 
+top-loading process, because of the load this puts 
+on the pot. 
+If the temperature exceeds the threshold, then the 
+Adjust light is lit, and the following process is 
+carried out:
+First the 1K pot needle valve is closed completely for 
+a period defined by the Delay parameter in the 1K Pot 
+setup. 
+The temperature is then compared with that before 
+the valve was closed. If the temperature has risen or 
+remained constant, then the pot is deemed to have been 
+empty. It is filled for the Fill Time defined in the 
+setup, and a new continuous fill setting calculated as 
+the original valve position plus the Adjustment value 
+from the setup. 
+If the temperature has fallen as a result of the 
+needle valve being closed, then the pot must have 
+been overfilling. In this case, the continuous fill 
+setting is simply reduced by the Adjustment amount 
+from the setup. 
+After this, further adjustment is disabled for five 
+minutes to allow the 1K pot to stabilise at the new 
+setting.
+The sequence of steps is:
+ 1 Wait 500ms  
+ 2 If global variable 1K Pot Monitor is set to 
+   stop then exit
+ 3 If VI is not enabled then goto step 1
+ 4 If time since last check does not exceed the 
+   the adjustment period then goto step 1
+ 5 If T(1KPot) <= limit then goto step 1
+ 6 Record setting of 1K Pot needle valve(N/V)
+ 7 Close the 1K Pot N/V
+ 8 Wait for certain delay time
+ 9 If the temperature of the 1K pot has increased
+   since first closing the 1K pot N/V then
+     Set 1K N/V to previous value - increment
+   else
+     a Open 1K N/V to 99%
+     b Wait for a set time to allow the pot to fill
+     c Set 1K N/V to previous value + incremnt
+10 Wait for 5 minutes
+11 Goto step 1

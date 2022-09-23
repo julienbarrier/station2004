@@ -1,0 +1,19 @@
+KelvFlush.VI
+The sequence admits warm mixture to the unit thus 
+increasing the rate of warming. 
+The sequence of steps is:
+ 1 Prompt and allow exit
+ 2 If using Cold Trap 2 then
+     open V12B 
+   else 
+     open V12A to 99%
+ 3 Close V6
+ 4 Wait for V6 to close.
+ 5 If using Cold Trap2 then 
+     open V13B 
+   else 
+     open V13A
+ 6 Open V1, V3 and V9 to allow pumping to dump
+ 7 Wait for a set time to flush fridge with warm 
+   mixture
+ 8 End

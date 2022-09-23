@@ -1,0 +1,18 @@
+How to monitor 2 AVS47's
+1. Copy all existing software into a new folder
+2. Copy AVSDISK1.ZIP, AVSDISK2.ZIP and KLVDISK2.ZIP into the new folder and unzip them.
+3. Start LabView, close all VI's and then run SetOptions.vi in INSTALL.LLB to specify correct
+AVS interface settings.
+
+4. Set the picobus address of the AVS's to 1 and 2 respectively using the DIP
+switches in the bridge.
+5. Open AVSSetupDialog.vi in AVS.LLB and enter parameters for 2 AVS's
+  make AVS0 have PICOBUS address 1 and AVS1 PICOBUS address 2.
+6. Open AVSFrontPanel. Set the AVS Number to 0 or 1 and then use the Operate
+        Run command.
+
+7. AVS0 can be monitored using KelvAVSMonitor.vi in AVSMon.llb and AVS1 can be
+monitored using kelvAVSMonitor2.vi in AVSMon2.LLB. The settings for the
+monitors are entered using AVSMonitorSetup.vi and AVSMonitorSetup2.vi
+respectively.
+

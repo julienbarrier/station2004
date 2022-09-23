@@ -1,0 +1,41 @@
+Kelv4.2KCoolDown.VI
+The 4.2K cooldown sequence takes the fridge from
+room temperature to 4.2K.
+It should be used directly after connection of 
+pumping lines and assumes that all mixture is 
+in the dump. 
+
+The sequence of steps is:
+ 1 Start
+ 2 Warning and optional exit
+ 3 If IVC sorb is present set T(sorb) to 40K. Turn 
+   all other heaters off.
+ 4 Close all valves
+ 5 Pump 1K line for 1 minute.
+ 6 Open V5A, V2A, V7, V2, V3 and V1.
+ 7 Pump lines until P2<0.01.
+ 8 Close all solenoid valves.
+ 9 If using a Variox then 
+     a Prompt to open manual valves and set Variox 
+       temperature
+     b Open V4A
+   Else
+     a Prompt to load helium cold trap
+     b Prompt to open manual valves
+
+10 Wait for T(M/C) < 5K
+11 If no IVC sorb then prompt to pump IVC and 
+   goto step 14
+
+Now evacuate the IVC by cooling the sorb.
+12 If using a Variox then
+     wait for T(sorb) < 10K
+   else
+     a Turn sorb heater off. 
+     b Open V4A. Close V1A. Pump pot for 1 minute.
+     c Close V4A. Open V1K to initial value+20% 
+     d Open V1A. Close V1K.
+     e Wait until T(1K) > 6K or T(sorb)<10K
+     f If T(sorb)>10K then goto step a
+13 Wait for sorb to pump IVC. 
+14 End

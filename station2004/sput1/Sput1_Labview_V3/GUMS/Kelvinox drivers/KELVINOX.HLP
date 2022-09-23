@@ -1,0 +1,43 @@
+Help on using Kelvinox
+The Kelvinox software consists of a number of 
+sequences(VI's) which are started using the buttons
+on the front panel. Below is a list of the buttons
+and the name of the VI which it starts. 
+Help on the individual VI's can be selected from the
+list above.
+Additional on-line help is available using the CTRL-H
+command and then moving the cursor over the window
+element of interest.
+
+Run (KelvRunToBase.VI)
+Takes the fridge from 4.2K to circulating.
+
+Warm (KelvWarmUp.VI)
+Warms the fridge to beyond 4.2K
+
+MakeSafe (KelvMakeSafe.VI)
+Sets valves to pump mixture into dump.
+
+4.2K Cooldown (Kelv4.2KCooldown.VI)
+Cools fridge from room temperature to 4.2K
+
+Fill 1K Pot (KelvFillPot.VI)
+Fills 1K Pot and sets N/V to value for continuous fill
+
+Condense In (KelvCondense.VI)
+Condenses in mixture through V12A
+
+Circulate (KelvCirculate.VI)
+Puts fridge into circulating state
+
+Load Probe (KelvLoadProbe.VI)
+Use to load a TLM probe
+
+Unload Probe (KelvLoadProbe.VI)
+Use to unload a TLM probe
+
+Change N(2) cold trap (KelvChangeN2ColdTrap.VI)
+Use to change which cold trap to use on systems with 2
+traps.
+
+       

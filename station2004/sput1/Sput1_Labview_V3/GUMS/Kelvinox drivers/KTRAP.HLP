@@ -1,0 +1,5 @@
+KelvChangeN2ColdTrap.vi
+This VI changes the setting of which cold 
+trap to use in subsequent sequences. It also
+isolates the unwanted cold trap and opens the
+new cold trap.

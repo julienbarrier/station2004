@@ -1,0 +1,47 @@
+KelvLoadProbe.VI
+This VI ensures that the process of loading a 
+TLM probe is carried out correctly. 
+The fridge is normally in a condensed state before
+the sequence is started. However if you want to 
+speed up the process of unloading and re-loading
+a probe you can do so with the fridge left 
+circulating.
+A simple graphing utility (KelvTLMPotWatch.vi) is 
+called for the actual lowering of the probe 
+beyond the pre-cool stage. This displays the 
+current 1K pot temperature against a rather 
+arbitrary upper limit which is simply defined as 
+the starting temperature plus 0.3K. By watching the 
+graph as you lower the probe, you can optimise the 
+speed to load as fast as possible without overloading 
+the pot. If you exceed the maximum temperature, the 
+display will flash.
+The sequence of steps is:
+ 1 Ask if the fridge is meant to be in the Condensed
+   or Circulating state.
+ 2 Check that the fridge is in the state required.
+ 3 If in Circulating Mode then
+     a Turn heaters off
+     b Close V3
+     c Open V6. Wait for it to open.
+   else if in Condensed state then
+     a Turn heaters off
+     b If using Still line to condense open V3
+     c Close V6. Wait for it to close.
+ 4 Prompt to check helium bath level
+ 5 Prompt to mount probe on gate valve and pump out 
+   vacuum-lock to 10e-2 mbar.
+ 6 Prompt to pump-out sliding seal to rough vacuum
+ 7 Prompt to open gate valve, lower probe to pre-cool 
+   height and leave for at least 10 minutes.
+ 8 Open PotWatch VI to monitor 1K pot temperature as
+   the probe is slowly loaded.
+ 9 Prompt to stop pumping on the sliding seal.
+10 If in Condensed state then
+     Call KelvCirculate to start circulation
+     ( See separate help on this VI)
+   else if in Circulate state
+     a Wait for G2 to go below 200mbar
+     b Turn on Still heater
+     c Start roots pump if present
+11 End

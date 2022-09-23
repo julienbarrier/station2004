@@ -1,0 +1,19 @@
+KelvEmptyPot.VI
+This sequence empties the 1K pot with 
+alternate pumping and flushing operation using
+helium gas from the main bath.
+The empty condition is defined by parameters
+in the setup.
+The sequence of steps is:
+ 1 Prompt warning and allow exit
+ 2 Disable 1K Pot Monitor to stop it from 
+   re-filling the 1K pot.
+ 3 Close V1K, V5A and V2A
+ 4 Close V4A and open V1A. 
+ 5 Wait for G3 to exceed 900mbar.
+ 6 Close V1A and open V4A
+ 7 Wait for G3 to go below 50mbar.
+ 8 If 1K pot temperature < value in setup 
+   then goto step 4
+ 9 Wait for P2 to be less than value in setup
+10 End

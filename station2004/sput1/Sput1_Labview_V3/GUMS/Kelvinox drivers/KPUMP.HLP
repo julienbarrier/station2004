@@ -1,0 +1,31 @@
+KelvPump.VI
+KelvPump.VI pumps the mixture out of the fridge 
+into the dump. 
+It can be used either as part of a pump and flush 
+sequence, or to empty the unit directly; this depends 
+on the parameters in the Warm Up section of the 
+Kelvinox Setup.
+The primary operation is to open valve V6 slowly, 
+using feedback from G2. After V6 has fully opened, 
+the pressure P1 is monitored until it falls below 
+the threshold defined in the Warmup parameters 
+section of the setup.
+The sequence of steps is:
+ 1 Prompt and allow exit
+ 2 Close all cracking and solenoid valves
+ 3 If using Variox open V1A else open V4A.
+ 4 Open V1, V3 and V9 - to allow pumping to the dump
+ 5 If using ColdTrap1 then 
+     close V13A and open V12A
+   else
+     open V12B and close V13B
+ 6 Open V6 to Warmup initial value
+ 7 Gradually adjust V6, provided G2 is stable,
+   in order to maintain G2 at the target value. 
+   If pressure exceeds the over-ride limit then 
+   set V6 back to initial value.
+   Stop adjusting V6 when it has reached its maximum 
+   setting and G2 is below the target.
+ 8 Wait for P1 to go below limit. 
+   Abort the wait if the timeout time has elapsed.
+ 9 End 

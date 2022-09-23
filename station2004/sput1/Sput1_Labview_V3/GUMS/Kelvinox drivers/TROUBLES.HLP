@@ -1,0 +1,17 @@
+Trouble shooting tips:
+
+1. GPIB seems very slow.
+This can occur on Windows 95 with the 
+NI488.2M drivers when the board is not
+using IRQ. You may need to release an
+IRQ for the card to use.
+
+2. Instruments are not responding
+Ensure that the ISOBUS address is set.
+
+3. GPIB just will not work.
+Power off all instruments and the 
+computer. Ensure that the card is 
+properly seated in the computer and 
+that all cables are connected.
+Run the diagnostic test for the card.

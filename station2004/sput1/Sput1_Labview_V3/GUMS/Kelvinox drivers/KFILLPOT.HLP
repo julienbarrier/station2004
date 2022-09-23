@@ -1,0 +1,23 @@
+KelvFillPot.VI
+Fills the 1K pot and sets the needle valve to an 
+automatically determined continuous fill level.
+It also determines a needle valve position for a 
+lower 1K pot temperature.
+The sequence of steps is:
+ 1 Warning and allow to exit.
+ 2 Open 1K N/V to 99%. Open V4A and close V1A.
+ 3 Wait for the specified 1K pot fill time.
+ 4 Close 1K N/V. Wait for it to close.
+ 5 Waiting for stable base temperature on 1K pot.
+   Record T(1K) in T(1K Base)
+ 6 Set 1K N/V to initial setting
+ 7 Gradually open 1K N/V until 
+      T(1K) > T(1K Base) + Continuouse Fill Increment1
+   Whilst opening 1K N/V record in N/V setting(1) the
+   position of the 1K N/V when 
+      T(1K) > T(1K Base) + Continuouse Fill Increment2
+   This value is used by other sequences for when a 
+   lower flow is required - after condensation and 
+   initial circulation.
+ 8 Enable 1K Pot Monitor.
+

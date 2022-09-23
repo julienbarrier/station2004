@@ -1,0 +1,28 @@
+KelvWarmUp.VI
+Empties the 1K pot, applies power to M/C 
+and still and then pumps/pumps & flushes until the 
+fridge is empty.
+
+The sequence of steps is:
+ 1 Give warning and allow exit
+ 2 Close all cracking and solenoid valves.
+ 3 Open V9, V3 and V1. Open V12A and V6. 
+   Turn of any roots pump.
+ 4 If using a Variox then
+     a Prompt user to set temperature to 4.2K
+     b If V4A is shut then open V1A
+   else
+     Run KelvEmptyPot.VI to flush and pump the
+     1K pot until it is empty.
+     (See separate help for KelvPump.VI)
+ 5 Apply warmup power to mixing chamber and still
+ 6 Call KelvPump.VI to empty the fridge
+   (See separate help for KelvPump.VI)
+ 7 If fridge not empty and Pump & Flush required then
+   call KelvFlush.Vi to flush the fridge with warm 
+   mixture.
+   (See separate help for KelvFlush.VI)
+   Then return to step 6
+ 8 Set Still and Mixing Chamber power to 0.
+ 9 Close all solenoid and cracking valves.
+10 End

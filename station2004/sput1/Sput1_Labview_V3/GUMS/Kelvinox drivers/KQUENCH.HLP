@@ -1,0 +1,21 @@
+KelvQuenchMonitor.VI
+KelvQuechMonitor.VI prevents mixture loss in the case 
+of very sudden warming of the dilution unit while 
+circulating. This might happen if a superconducting 
+magnet were to quench causing eddy-current heating. 
+
+The monitor operates independently of any other 
+processes, except that it is terminated when the 
+Front Panel is disconnected.
+
+The sequence of steps is:
+ 1 If global variable 1K Pot Monitor is set to stop 
+   then exit
+ 2 Wait 2s
+ 3 If Check G2 parameter in setup is false then goto 1
+ 4 If V6 >= 99% and G2 > Quench Limit then
+     a Open V9 to allow mixture to go to the dump
+     b Display warning message
+   else
+     Flash Check LED to show that VI is active
+ 5 Goto 1

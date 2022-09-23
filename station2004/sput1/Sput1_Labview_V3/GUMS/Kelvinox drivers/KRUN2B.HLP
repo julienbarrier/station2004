@@ -1,0 +1,20 @@
+KelvRunToBase
+The RunToBase sequence takes the fridge from the
+4.2K state to circulation of mixture. It fills the 
+1K pot, condenses in the mixture and starts mixture 
+circulation.
+
+The sequence of steps is:
+ 1 Give warning and allow to exit
+ 2 Launches the IGH and AVS Monitor VI's
+ 3 Checks if the fridge is already running. If so
+   ask the user if he wants to continue.
+ 4 Prompt to ensure all manual valves on insert are
+   open.
+ 5 Close all valves. Turn all heaters off
+ 6 If not using a Variox then call KelvFillPot.VI to
+   fill the 1K Pot.
+ 7 Call KelvCondense.VI to condense in the mixture
+ 8 Call KelvCirculate.VI to starting circulation
+ 9 Set 1K N/V to lower continuous fill setting
+10 End

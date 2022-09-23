@@ -1,0 +1,25 @@
+KelvMakeSafe,VI
+Make Safe starts pumping the mixture into the dump.
+This VI can be useful if you are unsure about the 
+settings of valves, or if there is excessive power 
+entering the unit. It can be considered as a panic 
+button. 
+After execution, mixture will start to be 
+removed to the dump, although the speed with which 
+this happens depends very much on the temperature 
+of the unit. 
+You should not use this as a routine method for 
+warming up the refrigerator.
+This should only be done when the fridge is 
+running below 4.2K
+
+The Sequence of steps is:
+ 1 Close all solenoid and cracking valves
+ 2 Open V3, V1, V9, V1A, V6 and turn off roots pump.
+ 3 Disable IK Pot monitor
+ 4 Turn off all heaters.
+ 5 Display prompt telling user not to disconnect 
+   pumping lines until all the mixture has been 
+   removed and the manual valves to the dump have 
+   been closed.
+ 
